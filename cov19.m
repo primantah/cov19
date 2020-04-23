@@ -1,4 +1,5 @@
-%% VISUALIZATION NUMBER OF SICK DUE TO COV-19 %%
+%% VISUALIZATION REMARKABLE DATE AND NUMBER OF SICK DUE TO COV-19 %%
+%% ----- untuk kalangan sendiri ----- %%
 
 clear
 close all
