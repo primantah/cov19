@@ -5,14 +5,14 @@ close all
 
 %% PARAMETER TANGGAL
 d1 = '01 Mar 2020';   % hari ke-0 covid muncul di indo
-d2 = '18 Jun 2020';   % hari peak of new cases of covid di indo
-d6 = '18 Jun 2020';   % hari ini hehe
+d2 = '13 Jan 2021';   % hari peak of new cases of covid di indo
+d6 = '13 Jan 2021';   % hari ini hehe
 dForm = 'dd mmm yyyy';
 t = abs(datenum(d1,dForm) - datenum(d2,dForm)); 
 
 %% GRAFIK INFECTED CASES
-a = 0.11017; %% y = (a) x^(b) BENTUK UMUM DARI EXPONEN
-b = 2.76108;
+a = 0.11949; %% y = (a) x^(b) BENTUK UMUM DARI EXPONEN
+b = 2.73405;
 m = ((a)*t.^(b)); % mencari m (salah satu parameter transformasi)
 x1a = [1:1:t];
 x1c = [t:1:2*t];
@@ -21,8 +21,8 @@ y1c = (2*m)-a*((2*t)-x1c).^(b); %% y1 dicerminkan 2x, kesamping dan ke atas
 y1aEnd = a*t.^(b); %ini berguna buat menentukan titik pencerminan grafik solved
 
 %% GRAFIK SOLVED CASES
-c = 0.00139; %% y = (c) x^(d) BENTUK UMUM DARI EXPONEN
-d = 3.49565;
+c = 0.02281; %% y = (c) x^(d) BENTUK UMUM DARI EXPONEN
+d = 2.98514;
 y2a = c*x1a.^(d);                   % Grafik bagian 1
 t2b = ((y1aEnd/c).^(1/d)); % nyari waktu dimana mencapai titik balik global
 x2b = [t:1:t2b];
@@ -102,7 +102,7 @@ format shortG
 
 disp('-------------------------------------------');
 disp('  PREDIKSI PRIMANTA TENTANG COVID DI INDO  ');
-disp('-------------------------------------------');
+disp('--PREDIKSI KE-37---------------------------');
 
 fprintf('Hari ini       --> '); disp(d6);
 fprintf('Puncak Active  --> '); disp(datestr((d3+datenum(d1,dForm)),dForm));
@@ -110,7 +110,7 @@ fprintf('Puncak Active  --> '); disp(datestr((d3+datenum(d1,dForm)),dForm));
 fprintf('Akhir COVID    --> '); disp(datestr((d5+datenum(d1,dForm)),dForm));
 fprintf('\n');
 fprintf('Jumlah active cases maksimal  '); disp(sickPeak);
-fprintf('Jumlah positive cases maksimal'); disp(positivePeak);
+fprintf('Jumlah confirmed cases maksimal'); disp(positivePeak);
 disp('nb:');
 disp('mekanisme perhitungan ini hanyalah prediksi');
 disp('         kritik dan saran sangat diharapkan');
